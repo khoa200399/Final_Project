@@ -1,0 +1,63 @@
+.wrapper {
+  width: 100%;
+  border-radius: 33px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  :global {
+    & .ant-dropdown-open {
+      background-color: white !important;
+      border-radius: 35px !important;
+      box-shadow: 0 6px 20px rgba(blue, 0.2);
+    }
+  }
+}
+
+.btn {
+  text-align: center !important;
+  padding-left: 10px !important;
+  height: 70px !important;
+  background-color: transparent !important ;
+  border: none !important;
+  padding-top: 10px !important;
+  h1 {
+    font-weight: 600 !important;
+    margin: 0 !important;
+  }
+}
+
+.locationBtn {
+  width: 40%;
+  text-align: left !important;
+  border-radius: 35px 0 0 35px !important;
+  padding-left: 25px !important;
+  h1 {
+    padding-left: 10px;
+  }
+  .inputSearch {
+    border: none !important;
+    background: transparent !important;
+    &:focus {
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+}
+.checkinBtn {
+  width: 15%;
+}
+.checkoutBtn {
+  width: 15%;
+}
+.addGuestBtn {
+  width: 30%;
+  border-radius: 0px 35px 30px 35px !important;
+}
+
+.menuDropdown {
+  max-width: 285px;
+  max-height: 250px;
+  overflow: auto;
+}
