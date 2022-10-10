@@ -9,14 +9,13 @@
 
 .content {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 28px;
   border: 1px solid #e3e3e3;
-  height: 70%;
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  display: none;
+  transition: all 0.5s;
 }
 
 .btn {
@@ -24,6 +23,7 @@
   border-right: 1px solid #e3e3e3 !important;
   background: transparent !important;
   font-weight: 600 !important;
+  box-shadow: none !important;
   &:focus {
     background-color: transparent !important;
   }
@@ -45,6 +45,7 @@
   border: none !important;
   border-right: 1px solid #e3e3e3 !important;
   background: transparent !important;
+  box-shadow: none !important;
   &:focus {
     background-color: transparent !important;
   }
@@ -57,12 +58,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  transition: all 0.5s;
 }
 
 .location {
-    width: 180%;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 180%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  cursor: pointer;
 }

@@ -14,7 +14,7 @@ const CHeader = () => {
             <img src={logo} alt="logo" className="w-[80%]" />
           </Link>
         </div>
-        <div className="w-[30%] h-full">
+        <div className="w-[35%] h-full">
           <OptionBar />
         </div>
         <div className="w-[10%] text-center leading-5 pt-2">

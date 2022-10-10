@@ -1,18 +1,11 @@
 .wrapper {
   width: 100%;
-  border-radius: 33px;
+  border-radius: 35px;
   margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
-  :global {
-    & .ant-dropdown-open {
-      background-color: white !important;
-      border-radius: 35px !important;
-      box-shadow: 0 6px 20px rgba(blue, 0.2);
-    }
-  }
 }
 
 .btn {
@@ -26,23 +19,19 @@
     font-weight: 600 !important;
     margin: 0 !important;
   }
+  &:focus-within {
+    border-radius: 35px !important;
+    box-shadow: 0 6px 20px rgba(blue, 0.2);
+  }
 }
 
 .locationBtn {
   width: 40%;
   text-align: left !important;
-  border-radius: 35px 0 0 35px !important;
   padding-left: 25px !important;
+  position: relative;
   h1 {
     padding-left: 10px;
-  }
-  .inputSearch {
-    border: none !important;
-    background: transparent !important;
-    &:focus {
-      border: none !important;
-      box-shadow: none !important;
-    }
   }
 }
 .checkinBtn {
@@ -53,11 +42,36 @@
 }
 .addGuestBtn {
   width: 30%;
-  border-radius: 0px 35px 30px 35px !important;
+  display: flex !important;
+  padding-bottom: 10px !important;
 }
 
-.menuDropdown {
-  max-width: 285px;
-  max-height: 250px;
-  overflow: auto;
+.searchIcon {
+  width: 50%;
+  background-color: #e61d51;
+  height: 100%;
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: 0 3px 25px rgba(red, 0.9);
+  }
+}
+
+.locationList {
+  :global {
+    input: {
+      background-color: transparent !important;
+    }
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    .ant-select-selector {
+      border-color: transparent !important;
+      background-color: transparent !important;
+    }
+  }
 }
