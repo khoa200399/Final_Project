@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { locationApi } from 'components/OptionBar/locationApi'
+import { locationApi } from 'store/locationApi'
 import commonReducer from './common'
 
 export const store = configureStore({

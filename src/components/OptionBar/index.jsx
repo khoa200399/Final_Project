@@ -33,7 +33,7 @@ const OptionBar = () => {
         }}
       >
         <div className={s.closeBtn} onClick={() => setIsShow(false)}>
-          <i class="fa-solid fa-xmark"></i>
+          <i className="fa-solid fa-xmark"></i>
         </div>
         <CMenu />
         <div className={s.location}>

@@ -1,7 +1,6 @@
 import { Button, Divider, Select } from "antd";
-import Loader from "components/Loader";
 import React, { useState } from "react";
-import { useGetLocationQuery } from "../locationApi";
+import { useGetLocationQuery } from "../../../store/locationApi";
 import s from "./styles.module.scss";
 
 const { Option } = Select;
@@ -24,7 +23,7 @@ const LocationPicker = () => {
           >
             {data?.content.map((item) => (
               <Option key={item.id} value={JSON.stringify(item)}>
-                <i class="fa-solid fa-location-dot pr-2 text-[red]"></i>
+                <i className="fa-solid fa-location-dot pr-2 text-[red]"></i>
                 {item.tenViTri}, {item.tinhThanh}, {item.quocGia}
               </Option>
             ))}

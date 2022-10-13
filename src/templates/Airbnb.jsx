@@ -9,8 +9,8 @@ const Airbnb = ({ children }) => {
   return (
     <Layout>
       <CHeader />
-      <Layout className="px-[50px] py-[30px]">
-        <Content className="h-screen">{children}</Content>
+      <Layout>
+        <Content>{children}</Content>
       </Layout>
       <CFooter />
     </Layout>
