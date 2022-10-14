@@ -39,7 +39,7 @@ const Locations = () => {
                 </div>
               </Col>
               {/* -------------------- */}
-              <Col span={18} className="py-5 px-2">
+              <Col className="py-5 px-2">
                 <h1>{item.tinhThanh}</h1>
                 <span className="text-[#9e9e9e]">
                   {Math.floor(Math.random() * (5 - 1 + 1)) + 1} hours driving

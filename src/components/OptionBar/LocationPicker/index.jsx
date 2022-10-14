@@ -1,13 +1,25 @@
 import { Button, Divider, Select } from "antd";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import removeVietnameseTones from "utils/convertVie";
 import { useGetLocationQuery } from "../../../store/locationApi";
 import s from "./styles.module.scss";
 
 const { Option } = Select;
 
 const LocationPicker = () => {
+  const navigate = useNavigate();
   const { data, isLoading } = useGetLocationQuery();
   const [selectItem, setSelectItem] = useState("");
+  const navigatePage = () => {
+    if (selectItem) {
+      const cityName = removeVietnameseTones(selectItem.tenViTri);
+      navigate(`/${cityName}`, { state: { location: selectItem } });
+    } else {
+      toast.error("Please choose your Locations");
+    }
+  };
 
   return (
     <div className={s.wrapper}>
@@ -61,7 +73,7 @@ const LocationPicker = () => {
           <h1>Who</h1>
           <p className="text-[#a6a6a6]">Add guests</p>
         </div>
-        <div className={s.searchIcon}>
+        <div className={s.searchIcon} onClick={navigatePage}>
           <i className="fa-solid fa-magnifying-glass pr-2"></i> Search
         </div>
       </Button>

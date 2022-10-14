@@ -8,7 +8,6 @@ import s from "./styles.module.scss";
 
 const CustomCarousel = () => {
   const carouselRef = useRef(null);
-  console.log(carouselRef);
   const settings = {
     dots: true,
     infinite: true,
