@@ -8,3 +8,21 @@
   padding-top: 10px;
   color: #b1b1b1;
 }
+
+.tag {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-right: 15px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  transition: all 0.5s;
+  &:hover {
+    border-color: black;
+  }
+}
+.roomTitle {
+  font-size: 22px;
+  transition: all 0.5s;
+  &:hover {
+    color: red;
+  }
+}

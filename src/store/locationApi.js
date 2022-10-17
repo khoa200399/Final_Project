@@ -30,6 +30,16 @@ export const locationApi = createApi({
         },
       }),
     }),
+    getDetailRoom: builder.query({
+      query: (id) => ({
+        url: `/phong-thue/${id}`,
+      }),
+    }),
+    getLocationById: builder.query({
+      query: (id) => ({
+        url: `/vi-tri/${id}`,
+      }),
+    }),
   }),
 });
 
@@ -37,4 +47,6 @@ export const {
   useGetLocationQuery,
   useGetLocationPaginationQuery,
   useGetRoomByLocationQuery,
+  useGetDetailRoomQuery,
+  useGetLocationByIdQuery,
 } = locationApi;

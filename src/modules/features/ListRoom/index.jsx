@@ -1,46 +1,71 @@
 import { Col, Divider, Row } from "antd";
 import Loader from "components/Loader";
+import moment from "moment";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGetRoomByLocationQuery } from "store/locationApi";
 import removeVietnameseTones from "utils/convertVie";
 import s from "./styles.module.scss";
+
+const tags = [
+  "Stay types",
+  "Price",
+  "Book now",
+  "Rooms & Bedrooms",
+  "Another Filter",
+];
 
 const ListRoom = () => {
   const location = useLocation();
   const locationID = location.state?.location.id;
   const cityName = removeVietnameseTones(location.state?.location.tenViTri);
-  const { data, isLoading, isSuccess } = useGetRoomByLocationQuery(
-    locationID || 0
-  );
+  const { data, isLoading } = useGetRoomByLocationQuery(locationID || 0);
   var formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
   const listRoom = data?.content;
-  return (
+  console.log(listRoom);
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div>
       <Row className="px-[40px] py-[30px]">
         <Col span={16} className="h-full pr-8">
           <div>
-            <span>More than 300 stays - 16 thg 4 - 14 thg 5</span>
-            <h1>ROOMS FROM YOUR CHOOSE</h1>
+            <span className="text-[18px] text-[#7b7b7b]">
+              More than 300 stays • {moment().format("MMM Do")} -
+              {moment().add("20", "days").format("MMM Do")}
+            </span>
+            <h1 className="text-[30px] pt-2 !mb-0">ROOMS FROM YOUR CHOOSE</h1>
+            <div className="py-1">
+              {tags.map((tag, index) => (
+                <button key={index} className={s.tag}>
+                  {tag}
+                </button>
+              ))}
+              <Divider />
+            </div>
           </div>
           <div className="flex flex-col">
             {listRoom?.map((room) => (
               <div key={room.id}>
                 <div className="flex ">
                   <div className="w-[40%]">
-                    <img
-                      className="w-full h-[200px] object-cover rounded-xl"
-                      src={room.hinhAnh}
-                      alt={room.id}
-                    />
+                    <Link to={`/detail/${room.id}`} state={{ id: room.id }}>
+                      <img
+                        className="w-full h-[200px] object-cover rounded-xl"
+                        src={room.hinhAnh}
+                        alt={room.id}
+                      />
+                    </Link>
                   </div>
                   <div className="w-[60%] pl-[1.75rem] flex flex-col justify-between">
                     <div>
-                      <h1 className="text-[22px]">{room.tenPhong}</h1>
+                      <Link to={`/detail/${room.id}`} state={{ id: room.id }}>
+                        <h1 className={s.roomTitle}>{room.tenPhong}</h1>
+                      </Link>
                       <span className="text-[16px]">
                         {room.khach} Guests - {room.phongNgu} Bedrooms -{" "}
                         {room.giuong} beds - {room.phongTam} baths
@@ -50,7 +75,10 @@ const ListRoom = () => {
                       </p>
                     </div>
                     <div className="text-right pr-2">
-                      <span className="font-bold text-[20px]">{formatter.format(room.giaTien)}</span>
+                      <span className="font-bold text-[20px]">
+                        {formatter.format(room.giaTien)}{" "}
+                        <span className="font-light">/ night</span>
+                      </span>
                     </div>
                   </div>
                 </div>
