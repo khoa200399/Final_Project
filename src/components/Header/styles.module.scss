@@ -1,0 +1,45 @@
+.hostBtn {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  line-height: 2px !important;
+  font-weight: 600 !important;
+  &:hover {
+    color: black !important;
+    background-color: #e0e0e0 !important ;
+  }
+  &:focus {
+    color: black !important;
+  }
+}
+
+.languageBtn {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  padding: 0 8px !important;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  line-height: 2px !important;
+  font-weight: 600 !important;
+  &:hover {
+    color: black !important;
+    background-color: #e0e0e0 !important ;
+  }
+  &:focus {
+    color: black !important;
+  }
+}
+
+.userBtn {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 30px;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  }
+}

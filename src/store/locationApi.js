@@ -40,6 +40,11 @@ export const locationApi = createApi({
         url: `/vi-tri/${id}`,
       }),
     }),
+    getCommentByRoomId: builder.query({
+      query: (id) => ({
+        url: `/binh-luan/lay-binh-luan-theo-phong/${id}`,
+      }),
+    }),
   }),
 });
 
@@ -49,4 +54,5 @@ export const {
   useGetRoomByLocationQuery,
   useGetDetailRoomQuery,
   useGetLocationByIdQuery,
+  useGetCommentByRoomIdQuery,
 } = locationApi;

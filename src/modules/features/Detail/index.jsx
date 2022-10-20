@@ -6,6 +6,9 @@ import {
   useGetDetailRoomQuery,
   useGetLocationByIdQuery,
 } from "store/locationApi";
+import AddComment from "./AddComment";
+import Amenities from "./Amenities";
+import UserComment from "./Comment";
 import TranslateDescription from "./Translate";
 
 const hardDetail = [
@@ -125,16 +128,20 @@ const RoomDetail = () => {
             </div>
             <Divider />
             <div>
-              <h1 className="text-[22px]">What this place offers</h1>
-              <div>
-                {/* {amenities?.map((item) => (
-                  <h1>{item}</h1>
-                ))} */}
-              </div>
+              <h1 className="text-[22px] pb-3">What this place offers</h1>
+              <Amenities amenities={amenities} />
             </div>
           </div>
 
           <div className="w-[30%]">Booking room</div>
+        </div>
+
+        <Divider />
+        <div>
+          <UserComment roomId={roomId} />
+        </div>
+        <div className="pt-10">
+          <AddComment />
         </div>
       </div>
     </div>

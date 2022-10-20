@@ -8,7 +8,11 @@ const Readmore = ({ children }) => {
   };
   return (
     <h1 className="text font-normal text-[16px]">
-      {isReadMore ? text.slice(0, 200).concat("...") : text}
+      {isReadMore
+        ? text.length > 200
+          ? text.slice(0, 200).concat("...")
+          : text
+        : text}
       <p
         onClick={toggleReadMore}
         className="font-bold cursor-pointer underline text-[16px] hover:opacity-50 ease-out duration-500"

@@ -7,9 +7,9 @@ const Airbnb = ({ children }) => {
   const { Content } = Layout;
 
   return (
-    <Layout>
+    <Layout className="!bg-white">
       <CHeader />
-      <Layout>
+      <Layout className="!bg-white">
         <Content>{children}</Content>
       </Layout>
       <CFooter />

@@ -1,0 +1,27 @@
+.userName {
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.passwordInput {
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  input {
+    font-size: 20px;
+  }
+}
+
+.loginBtn {
+  background-color: #faad14;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5s;
+  &:hover {
+    background-color: #d48806;
+  }
+}
