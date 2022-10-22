@@ -1,7 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import moment from "moment";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL_API;
 const TOKEN_CYBERSOFT = process.env.REACT_APP_TOKEN_CYBERSOFT;
+const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+const token = localStorage.getItem("token");
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -33,7 +36,24 @@ export const authApi = createApi({
         }
       },
     }),
+    addComment: builder.mutation({
+      query: ({ roomId, comment }) => ({
+        url: "/binh-luan",
+        method: "POST",
+        headers: {
+          token: token,
+        },
+        body: {
+          id: Math.floor(Math.random() * (10 - 0) + 0),
+          maPhong: roomId,
+          maNguoiBinhLuan: userInfo.id,
+          ngayBinhLuan: moment().format("DD/MM/YYYY"),
+          noiDung: comment,
+          saoBinhLuan: Math.floor(Math.random() * (5 - 1) + 1),
+        },
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useAddCommentMutation } = authApi;

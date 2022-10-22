@@ -8,6 +8,7 @@ import {
 } from "store/locationApi";
 import AddComment from "./AddComment";
 import Amenities from "./Amenities";
+import Booking from "./Booking";
 import UserComment from "./Comment";
 import TranslateDescription from "./Translate";
 
@@ -133,15 +134,17 @@ const RoomDetail = () => {
             </div>
           </div>
 
-          <div className="w-[30%]">Booking room</div>
+          <div className="w-[30%]">
+            <Booking roomDetail={roomDetail} />
+          </div>
         </div>
 
         <Divider />
         <div>
           <UserComment roomId={roomId} />
         </div>
-        <div className="pt-10">
-          <AddComment />
+        <div>
+          <AddComment roomId={roomId} />
         </div>
       </div>
     </div>

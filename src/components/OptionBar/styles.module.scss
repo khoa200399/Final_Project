@@ -9,7 +9,7 @@
 }
 
 .content {
-  width: 70%;
+  max-width: 380px;
   border-radius: 28px;
   border: 1px solid #e3e3e3;
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
@@ -21,7 +21,7 @@
 
 .btn {
   border: none !important;
-  border-right: 1px solid #e3e3e3 !important;
+  // border-right: 1px solid #e3e3e3 !important;
   background: transparent !important;
   font-weight: 600 !important;
   box-shadow: none !important;
@@ -44,7 +44,7 @@
 }
 .addGuestBtn {
   border: none !important;
-  border-right: 1px solid #e3e3e3 !important;
+  // border-right: 1px solid #e3e3e3 !important;
   background: transparent !important;
   box-shadow: none !important;
   &:focus {
@@ -64,7 +64,8 @@
 }
 
 .location {
-  width: 180%;
+  max-width: 800px;
+  width: 170%;
   margin-top: 15px;
   display: flex;
   justify-content: center;

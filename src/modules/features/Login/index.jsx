@@ -28,12 +28,13 @@ const Login = () => {
   });
 
   useEffect(() => {
-    if (isSuccess) navigate("/");
+    if (isSuccess) navigate(-1);
   }, [isSuccess, navigate]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    const userInfo = localStorage.getItem("userInfo");
+    if (token && userInfo) {
       navigate("/");
     }
   }, []);

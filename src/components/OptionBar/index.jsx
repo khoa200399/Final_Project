@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Divider } from "antd";
 import React, { useState } from "react";
 import s from "./styles.module.scss";
 import { SearchOutlined } from "@ant-design/icons";
@@ -18,7 +18,9 @@ const OptionBar = () => {
         }}
       >
         <Button className={s.btn}>Anywhere</Button>
+        <Divider type="vertical" className="!h-[30px] !border-slate-300" />
         <Button className={s.btn}>Anyweek</Button>
+        <Divider type="vertical" className="!h-[30px] !border-slate-300" />
         <Button className={s.addGuestBtn}>Add guests</Button>
         <button className={s.searchBtn}>
           <SearchOutlined />

@@ -45,6 +45,11 @@ export const locationApi = createApi({
         url: `/binh-luan/lay-binh-luan-theo-phong/${id}`,
       }),
     }),
+    getBooking: builder.query({
+      query: () => ({
+        url: `/dat-phong`,
+      }),
+    }),
   }),
 });
 
@@ -55,4 +60,5 @@ export const {
   useGetDetailRoomQuery,
   useGetLocationByIdQuery,
   useGetCommentByRoomIdQuery,
+  useGetBookingQuery,
 } = locationApi;
