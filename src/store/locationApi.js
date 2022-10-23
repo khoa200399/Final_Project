@@ -50,6 +50,13 @@ export const locationApi = createApi({
         url: `/dat-phong`,
       }),
     }),
+    bookingRoom: builder.mutation({
+      query: (body) => ({
+        url: `/dat-phong`,
+        method: 'POST',
+        body
+      }),
+    }),
   }),
 });
 
@@ -61,4 +68,5 @@ export const {
   useGetLocationByIdQuery,
   useGetCommentByRoomIdQuery,
   useGetBookingQuery,
+  useBookingRoomMutation
 } = locationApi;

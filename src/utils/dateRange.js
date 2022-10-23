@@ -1,13 +1,15 @@
 import moment from "moment";
 
-export function disableDateRanges(
-  range = { startDate: false, endDate: false }
-) {
-  const { startDate, endDate } = range;
+const rangeDate = (current, { from, to }) => {
+  return current > moment(from, "DD/MM/YYYY") && current < moment(to, "DD/MM/YYYY").endOf("day")
+}
+
+export const disableRangesDate = (arr) => {
   return function disabledDate(current) {
-    return (
-      current > moment(startDate, "DD/MM/YYYY") &&
-      current < moment(endDate, "DD/MM/YYYY").endOf("day")
-    );
-  };
+    let result = false;
+    arr?.forEach(item => {
+      result |= rangeDate(current, item)
+    })
+    return result
+  }
 }

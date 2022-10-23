@@ -2,15 +2,13 @@ import { Avatar, Divider } from "antd";
 import Loader from "components/Loader";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import {
-  useGetDetailRoomQuery,
-  useGetLocationByIdQuery,
-} from "store/locationApi";
+import { useGetDetailRoomQuery, useGetLocationByIdQuery } from "store/locationApi";
 import AddComment from "./AddComment";
 import Amenities from "./Amenities";
 import Booking from "./Booking";
 import UserComment from "./Comment";
 import TranslateDescription from "./Translate";
+
 
 const hardDetail = [
   {
@@ -41,8 +39,9 @@ const RoomDetail = () => {
   const roomId = location?.state.id;
   const { data, isLoading, isSuccess } = useGetDetailRoomQuery(roomId);
   const roomDetail = data?.content;
-  const { data: locationData, isLoading: isLocationLoading } =
-    useGetLocationByIdQuery(roomDetail?.maViTri);
+  const { data: locationData, isLoading: isLocationLoading } = useGetLocationByIdQuery(
+    roomDetail?.maViTri
+  );
   const locationDetail = locationData?.content;
   const [amenities, setAmenities] = useState({});
 
@@ -71,6 +70,7 @@ const RoomDetail = () => {
     <div className="px-[40px] py-[30px] flex flex-col justify-center items-center">
       <div className="w-[80%]">
         <div>
+          
           <h1 className="text-[22px]">{roomDetail.tenPhong}</h1>
           <div>
             <span>4,83(18 ratings)</span>
@@ -95,8 +95,8 @@ const RoomDetail = () => {
         </div>
 
         <div className="flex">
-          <div className="w-[70%]">
-            <div className="flex justify-between pr-[40px]">
+          <div className="w-[70%] pr-[40px]">
+            <div className="flex justify-between">
               <div>
                 <h1>Whole Place • Hosted by Khoa Dang</h1>
                 <span>

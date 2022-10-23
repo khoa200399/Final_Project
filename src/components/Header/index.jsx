@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import OptionBar from "components/OptionBar";
 import { Avatar, Button, Divider, Dropdown, Menu } from "antd";
 import s from "./styles.module.scss";
-import { MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { logout } from "modules/features/Login/authSlice";
 import { stringAvatar } from "utils/generateAvatar";

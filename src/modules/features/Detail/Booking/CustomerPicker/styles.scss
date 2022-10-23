@@ -1,0 +1,70 @@
+.wrapper {
+  height: 50px;
+  border: 1px solid #bababa;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.resultPick {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menuWrapper {
+  width: 100%;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+.menuDropdown {
+  border-radius: 10px;
+  padding: 15px 10px;
+  border: 1px solid rgb(221, 221, 221);
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  max-height: 400px;
+  background-color: white;
+}
+
+.plusBtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bababa;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  &:hover {
+    border-color: #636363;
+  }
+}
+
+.minusBtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bababa;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  &:hover {
+    border-color: #636363;
+  }
+}
+
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
