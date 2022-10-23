@@ -28,13 +28,19 @@ export const authApi = createApi({
       async onQueryStarted(body, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          console.log(data.user);
           localStorage.setItem("userInfo", JSON.stringify(data.content.user));
           localStorage.setItem("token", data.content.token);
         } catch (err) {
           console.log(err);
         }
       },
+    }),
+    register: builder.mutation({
+      query: (body) => ({
+        url: "auth/signup",
+        method: "POST",
+        body
+      }),
     }),
     addComment: builder.mutation({
       query: ({ roomId, comment }) => ({
@@ -56,4 +62,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginMutation, useAddCommentMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation, useAddCommentMutation } = authApi;

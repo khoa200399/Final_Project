@@ -16,6 +16,11 @@ export const home = [
     name: "Room Detail Page",
     Component: lazy(() => import("../modules/features/Detail/index")),
   },
+  {
+    path: "/profile",
+    name: "Profile Page",
+    Component: lazy(() => import("../modules/features/Profile/index")),
+  },
 ];
 const protectedRoutes = [...home];
 

@@ -1,17 +1,18 @@
 import { Header } from "antd/lib/layout/layout";
 import React, { useEffect, useState } from "react";
 import logo from "assets/Airbnb_Logo.svg.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import OptionBar from "components/OptionBar";
 import { Avatar, Button, Divider, Dropdown, Menu } from "antd";
 import s from "./styles.module.scss";
 import { MenuOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { logout } from "modules/features/Login/authSlice";
+import { logout } from "modules/features/Authentication/authSlice";
 import { stringAvatar } from "utils/generateAvatar";
 
 const CHeader = () => {
   const dispatch = useDispatch();
+  const location = useLocation()
   const [userInfo, setUserInfo] = useState(null);
   const [token, setToken] = useState(null);
 
@@ -22,12 +23,27 @@ const CHeader = () => {
 
   const menuUser = (dispatch) => (
     <Menu className="bg-white !rounded-[10px] !px-3">
-      {!userInfo && !token && <Menu.Item key="login">Sign up</Menu.Item>}
+      {!userInfo && !token && (
+        <Menu.Item key="login">
+          <Link to="/auth/register">Sign up</Link>
+        </Menu.Item>
+      )}
       {!userInfo && !token && (
         <Menu.Item key="signup">
           <Link to="/auth/login">Log in</Link>
         </Menu.Item>
       )}
+      {userInfo && token && (
+        <Menu.Item key="profile">
+          <Link to="/profile">Profile</Link>
+        </Menu.Item>
+      )}
+
+      <Menu.Divider />
+      <Menu.Item key="hostHome">Host your home</Menu.Item>
+      <Menu.Item key="hostExp">Host an experience</Menu.Item>
+      <Menu.Item key="help">Help</Menu.Item>
+      {userInfo && token && <Menu.Divider />}
       {userInfo && token && (
         <Menu.Item
           key="logout"
@@ -39,11 +55,6 @@ const CHeader = () => {
           Log out
         </Menu.Item>
       )}
-
-      <Menu.Divider />
-      <Menu.Item key="hostHome">Host your home</Menu.Item>
-      <Menu.Item key="hostExp">Host an experience</Menu.Item>
-      <Menu.Item key="help">Help</Menu.Item>
     </Menu>
   );
 
@@ -56,7 +67,7 @@ const CHeader = () => {
           </Link>
         </div>
         <div className="h-full m-w-[350px]">
-          <OptionBar />
+          {location.pathname === "/profile" ? null : <OptionBar />}
         </div>
         <div className=" flex justify-end items-center flex-[1_0_140px]">
           <div>

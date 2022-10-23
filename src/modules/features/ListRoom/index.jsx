@@ -26,7 +26,6 @@ const ListRoom = () => {
   });
 
   const listRoom = data?.content;
-  console.log(listRoom);
   return isLoading ? (
     <Loader />
   ) : (

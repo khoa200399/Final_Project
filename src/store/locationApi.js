@@ -57,6 +57,18 @@ export const locationApi = createApi({
         body
       }),
     }),
+    getUserInfoById: builder.query({
+      query: (id) => ({
+        url: `/users/${id}`
+      }),
+    }),
+    editUserInfo: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/users/${id}`,
+        method: 'PUT',
+        body
+      }),
+    }),
   }),
 });
 
@@ -68,5 +80,7 @@ export const {
   useGetLocationByIdQuery,
   useGetCommentByRoomIdQuery,
   useGetBookingQuery,
-  useBookingRoomMutation
+  useBookingRoomMutation,
+  useGetUserInfoByIdQuery,
+  useEditUserInfoMutation
 } = locationApi;

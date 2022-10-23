@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { locationApi } from "store/locationApi";
 import { translationApi } from "store/translationApi";
-import { authApi } from "modules/features/Login/authApi";
+import { authApi } from "modules/features/Authentication/authApi";
 import commonReducer from "./common";
-import authReducer from "modules/features/Login/authSlice";
+import authReducer from "modules/features/Authentication/authSlice";
 
 export const store = configureStore({
   reducer: {
